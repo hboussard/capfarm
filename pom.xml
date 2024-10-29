@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fr.inrae.act.bagap.capfarm</groupId>
+  <artifactId>capfarm</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <geotools.version>21.3</geotools.version>
+  </properties>
+
+<repositories>
+		<repository>
+            <id>repo1.maven.org-maven2</id>
+            <name>Central repository</name>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net repository</name>
+            <url>https://download.java.net/maven/2</url>
+        </repository>
+        <repository>
+	        <id>com.springsource.repository.bundles.external</id>
+	        <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+	        <url>https://repository.springsource.com/maven/bundles/external</url>
+	    </repository>
+		<repository>
+			<id>osgeo</id>
+			<name>Open Source Geospatial Foundation Repository</name>
+			<url>https://repo.osgeo.org/repository/release/</url>
+		</repository>
+        <repository>
+          <id>geosolutions</id>
+          <name>Geosolutions Maven Repository</name>
+          <url>https://maven.geo-solutions.it/</url>
+        </repository>
+        <repository>
+			<id>atlassian</id>
+			<name>atlassian 3rd Party Repository</name>
+			<url>https://packages.atlassian.com/maven-3rdparty/</url>
+		</repository>	
+	</repositories>
+
+	<dependencies>
+		<dependency>
+	    	<groupId>org.choco-solver</groupId>
+	    	<artifactId>choco-solver</artifactId>
+	    	<version>3.3.3</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-shapefile</artifactId>
+			<version>21.3</version>
+		</dependency>
+		<dependency>
+	    	<groupId>org.jumpmind.symmetric</groupId>
+	    	<artifactId>symmetric-csv</artifactId>
+	    	<version>3.5.19</version>
+		</dependency>
+		<dependency>
+	    	<groupId>org.antlr</groupId>
+	    	<artifactId>antlr4-runtime</artifactId>
+	    	<version>4.5.3</version>
+		</dependency>
+		<dependency>
+      		<groupId>org.apache.poi</groupId>
+      		<artifactId>poi</artifactId>
+      		<version>3.17</version>
+    	</dependency>
+    	<dependency>
+      		<groupId>org.apache.poi</groupId>
+      		<artifactId>poi-ooxml</artifactId>
+      		<version>3.17</version>
+    	</dependency>
+			<dependency>
+      		<groupId>org.apache.poi</groupId>
+      		<artifactId>poi-ooxml-schemas</artifactId>
+      		<version>3.17</version>
+    	</dependency>
+    	<!-- 
+    	<dependency>
+    		<groupId>fr.inrae.act.bagap</groupId>
+    		<artifactId>apiland2</artifactId>
+    		<version>1.0</version>
+    	</dependency>
+    	-->
+	</dependencies>
+			
+</project>
