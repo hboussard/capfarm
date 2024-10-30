@@ -12,13 +12,15 @@ public class ConsoleOutput extends OutputAnalysis {
 	@Override
 	public void close(Simulation simulation){
 		if(!simulation.isCancelled()){
+			
 			for(CoverLocationModel model : (GlobalCoverLocationModel) simulation.model().get("agriculture")){
+				
 				System.out.println(model.getCoverAllocator().getCode());
 				for(Parcel p : model.getCoverAllocator().parcels()){
 					System.out.print(p.getId()+" : ");
 					Instant t = simulation.manager().end();
 					System.out.println(p.getAttribute("strict_seq").getValue(t));
-				}
+				}		
 			}
 		}
 	}

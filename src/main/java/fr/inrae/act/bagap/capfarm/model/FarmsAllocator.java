@@ -148,7 +148,7 @@ public class FarmsAllocator implements CoverAllocator {
 	}
 
 	@Override
-	public void setMemory(boolean memory) {
+	public void isMemory(boolean memory) {
 		throw new UnsupportedOperationException();
 	}
 

@@ -160,7 +160,7 @@ public class CoverAllocatorComposite implements CoverAllocator {
 	}
 	
 	@Override
-	public void setMemory(boolean memory) {
+	public void isMemory(boolean memory) {
 		// TODO Auto-generated method stub
 		
 	}

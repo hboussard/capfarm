@@ -59,7 +59,7 @@ public interface CoverAllocator extends Covering {
 	
 	void setMemory(int memory);
 	
-	void setMemory(boolean memory);
+	void isMemory(boolean memory);
 	
 	// test de la procedure de FixedAllocationProblem
 	Map<Parcel, CoverUnit> getSolution();

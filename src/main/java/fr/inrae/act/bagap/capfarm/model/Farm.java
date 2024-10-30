@@ -161,7 +161,7 @@ public class Farm implements CoverAllocator, Comparable<Farm> {
 	}
 	
 	@Override
-	public void setMemory(boolean memory){
+	public void isMemory(boolean memory){
 		this.hasMemory = memory;
 	}
 	

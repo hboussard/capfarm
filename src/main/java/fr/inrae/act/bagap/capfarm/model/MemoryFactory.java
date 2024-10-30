@@ -51,11 +51,13 @@ public class MemoryFactory {
 							//System.out.println(farm.getCode()+" "+memory+" "+max);
 						}else if(method.startsWith("selected")){
 							method = method.replace("selected(", "").replace(")", "");
-							String[] farms = method.split(":");
+							//String[] farms = method.split(":");
+							String[] farms = method.split("_");
 							for(String f : farms){
-								if(f.startsWith(farm.getCode()+"=")){
+								if(f.startsWith(farm.getCode()+"-")){
 									//System.out.println(f+" "+farm.getCode()+"= "+f.replace(farm.getCode()+"=", ""));
-									memory = Integer.parseInt(f.replace(farm.getCode()+"=", ""));
+									//memory = Integer.parseInt(f.replace(farm.getCode()+"=", ""));
+									memory = Integer.parseInt(f.replace(farm.getCode()+"-", ""));
 								}
 							}
 						}else if(method.startsWith("each")){
@@ -69,12 +71,14 @@ public class MemoryFactory {
 							}
 						}else if(method.startsWith("base")){
 							method = method.replace("base(", "").replace(")", "");
-							String[] farms = method.split(":");
+							//String[] farms = method.split(":");
+							String[] farms = method.split("_");
 							boolean ok = false;
 							for(String f : farms){
-								if(f.startsWith(farm.getCode()+"=")){
+								if(f.startsWith(farm.getCode()+"-")){
 									//System.out.println(f+" "+farm.getCode()+"= "+f.replace(farm.getCode()+"=", ""));
-									memory = Integer.parseInt(f.replace(farm.getCode()+"=", ""));
+									//memory = Integer.parseInt(f.replace(farm.getCode()+"=", ""));
+									memory = Integer.parseInt(f.replace(farm.getCode()+"-", ""));
 									ok = true;
 								}
 							}

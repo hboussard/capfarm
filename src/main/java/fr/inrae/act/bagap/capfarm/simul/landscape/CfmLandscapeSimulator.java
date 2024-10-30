@@ -36,7 +36,7 @@ public class CfmLandscapeSimulator extends CfmSimulator {
 			agriculture.setTerritory((AgriculturalArea) map().get("territory").get("AA"));
 			
 			for(Farm f : manager().farms()){
-				f.setMemory(true);
+				f.isMemory(true);
 				agriculture.add(new MemoryCoverLocationModel(this, f, true)); 
 			}
 			
@@ -60,7 +60,7 @@ public class CfmLandscapeSimulator extends CfmSimulator {
 					agriculture.add(new CSPCoverLocationModel(this, f, factory)); 
 					break;
 				case MEMORY : 
-					f.setMemory(true);
+					f.isMemory(true);
 					agriculture.add(new MemoryCoverLocationModel(this, f)); 
 					break;
 				default : throw new IllegalArgumentException(manager().processMode()+" not implemented yet");
