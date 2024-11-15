@@ -13,6 +13,8 @@ public class GlobalCoverLocationModel extends CompositeModel<CoverLocationModel>
 
 	private AgriculturalArea territory;
 	
+	private String memory;
+	
 	public GlobalCoverLocationModel(String name, Simulator simulator) {
 		super(name, simulator);
 	}
@@ -31,6 +33,14 @@ public class GlobalCoverLocationModel extends CompositeModel<CoverLocationModel>
 			farms.add((Farm) m.getCoverAllocator());
 		}
 		return farms;
+	}
+	
+	public void setMemory(String memory) {
+		this.memory = memory;
+	}
+	
+	public String getMemory() {
+		return memory;
 	}
 
 }

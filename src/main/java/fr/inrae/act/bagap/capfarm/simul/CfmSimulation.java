@@ -1,6 +1,8 @@
 package fr.inrae.act.bagap.capfarm.simul;
 
 import java.io.File;
+import java.util.Set;
+import java.util.TreeSet;
 
 import fr.inrae.act.bagap.capfarm.model.CoverUnit;
 import fr.inrae.act.bagap.capfarm.model.Farm;
@@ -32,6 +34,20 @@ public class CfmSimulation extends Simulation {
 			HistoricFactory.init((Farm) model.getCoverAllocator(), manager().start());
 			FixedFactory.init((Farm) model.getCoverAllocator(), manager().start());
 		}
+		
+		Set<Farm> farms = new TreeSet<Farm>();
+		for(CoverLocationModel model : (GlobalCoverLocationModel) model().get("agriculture")){
+			farms.add(((Farm) model.getCoverAllocator()));
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		for(Farm farm : farms) {
+			sb.append(farm.getCode()+"-"+farm.getMemory()+"_");
+		}
+		sb.deleteCharAt(sb.length()-1);
+		String memory = sb.toString();
+		//System.out.println(memory);
+		((GlobalCoverLocationModel) model().get("agriculture")).setMemory(memory);
 	}
 	
 	@Override

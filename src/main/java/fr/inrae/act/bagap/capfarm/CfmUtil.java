@@ -275,7 +275,7 @@ public class CfmUtil {
 		} 
 	}
 	
-	public static float[] exportTab(DynamicLayer<?> layer, String name, Instant t, Map<String, String> map, EnteteRaster entete){
+	public static float[] exportData(DynamicLayer<?> layer, String name, Instant t, Map<String, Integer> map, EnteteRaster entete){
 		
 		float[] datas = new float[entete.width()*entete.height()];
 		
@@ -286,7 +286,7 @@ public class CfmUtil {
 		while(ite.hasNext()){
 			f = ite.next();
 			RasterPolygon rp = (RasterPolygon) f.getRepresentation("raster").getGeometry(t);
-			String cover = map.get(((CoverUnit) f.getAttribute(name).getValue(t)).getCode());
+			int cover = map.get(((CoverUnit) f.getAttribute(name).getValue(t)).getCode());
 			indrp = 0;
 			xdelta = rp.getDeltaI();
 			ydelta = rp.getDeltaJ();
@@ -295,7 +295,40 @@ public class CfmUtil {
 					xrp = indrp % rp.getWidth();
 					yrp = indrp / rp.getWidth();
 					if(xdelta+xrp >= 0 && xdelta+xrp < entete.width() && ydelta+yrp >= 0 && ydelta+yrp < entete.height()){
-						datas[(ydelta+yrp)*entete.width() + (xdelta+xrp)] = Integer.parseInt(cover);
+						datas[(ydelta+yrp)*entete.width() + (xdelta+xrp)] = cover;
+					}
+				}
+				indrp++;
+			}
+		}
+		
+		return datas;
+	}
+	
+	public static float[] exportDataFromFarm(DynamicLayer<?> layer, String name, Instant t, Map<String, Map<String, Integer>> map, EnteteRaster entete){
+		
+		float[] datas = new float[entete.width()*entete.height()];
+		
+		int indrp;
+		int xdelta, ydelta, xrp, yrp;
+		DynamicFeature f;
+		Iterator<DynamicFeature> ite = layer.deepIterator();
+		while(ite.hasNext()){
+			f = ite.next();
+			
+			String farm = (String) f.getInheritedId("farm");
+			
+			RasterPolygon rp = (RasterPolygon) f.getRepresentation("raster").getGeometry(t);
+			int cover = map.get(farm).get(((CoverUnit) f.getAttribute(name).getValue(t)).getCode());
+			indrp = 0;
+			xdelta = rp.getDeltaI();
+			ydelta = rp.getDeltaJ();
+			for(double v : rp.getDatas()){
+				if(v == 1){
+					xrp = indrp % rp.getWidth();
+					yrp = indrp / rp.getWidth();
+					if(xdelta+xrp >= 0 && xdelta+xrp < entete.width() && ydelta+yrp >= 0 && ydelta+yrp < entete.height()){
+						datas[(ydelta+yrp)*entete.width() + (xdelta+xrp)] = cover;
 					}
 				}
 				indrp++;

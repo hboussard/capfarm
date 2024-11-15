@@ -1,5 +1,6 @@
 package fr.inrae.act.bagap.capfarm.simul.output;
 
+import fr.inrae.act.bagap.capfarm.model.Farm;
 import fr.inrae.act.bagap.capfarm.model.territory.Parcel;
 import fr.inrae.act.bagap.capfarm.simul.CoverLocationModel;
 import fr.inrae.act.bagap.capfarm.simul.GlobalCoverLocationModel;
@@ -22,6 +23,15 @@ public class ConsoleOutput extends OutputAnalysis {
 					System.out.println(p.getAttribute("strict_seq").getValue(t));
 				}		
 			}
+			/*
+			StringBuilder sb = new StringBuilder();
+			for(CoverLocationModel model : (GlobalCoverLocationModel) simulation.model().get("agriculture")){
+				sb.append(((Farm) model.getCoverAllocator()).getCode()+"-"+((Farm) model.getCoverAllocator()).getMemory()+"_");
+			}
+			sb.deleteCharAt(sb.length()-1);
+			String memory = sb.toString();
+			System.out.println(memory);
+			*/
 		}
 	}
 
