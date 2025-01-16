@@ -16,7 +16,7 @@
     <geotools.version>21.3</geotools.version>
   </properties>
 
-<repositories>
+	<repositories>
 		<repository>
             <id>repo1.maven.org-maven2</id>
             <name>Central repository</name>
@@ -54,6 +54,11 @@
 	    	<groupId>org.choco-solver</groupId>
 	    	<artifactId>choco-solver</artifactId>
 	    	<version>3.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-main</artifactId>
+			<version>21.3</version>
 		</dependency>	
 		<dependency>
 			<groupId>org.geotools</groupId>
