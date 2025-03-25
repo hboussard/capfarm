@@ -92,7 +92,7 @@ public class TerritoryFactory {
 				parcelType.addAttributeType(DynamicElementTypeFactory.createAttributeType(c, null, e.getKey()));
 			}	
 		}
-		parcelType.setCondition("parcel");
+		parcelType.addCondition("parcel");
 			
 		// definition du type "Facility"
 		DynamicFeatureType facilityType = new DynamicFeatureType("id", Facility.class);
@@ -101,7 +101,7 @@ public class TerritoryFactory {
 		facilityType.addAttributeType(DynamicElementTypeFactory.createAttributeType("facility", null, String.class));
 		facilityType.addAttributeType(DynamicElementTypeFactory.createAttributeType("cover", Interval.class, CoverUnit.class));
 		//facilityType.addAttributeType(DynamicElementTypeFactory.createAttributeType("codef", null, Integer.class));
-		facilityType.setCondition("facility");
+		facilityType.addCondition("facility");
 						
 		// definition du type "FarmTerritory"
 		DynamicLayerType farmTerritoryType = new DynamicLayerType("farm", FarmTerritory.class);
@@ -122,7 +122,7 @@ public class TerritoryFactory {
 		trameUnitType.addRepresentationType(new DynamicRepresentationType("raster", Interval.class, Surface.class, GeometryImplType.RASTER));
 		trameUnitType.addAttributeType(DynamicElementTypeFactory.createAttributeType("type", null, String.class));
 		trameUnitType.addAttributeType(DynamicElementTypeFactory.createAttributeType("cover", Interval.class, CoverUnit.class));
-		trameUnitType.setCondition("trame");
+		trameUnitType.addCondition("trame");
 		
 		// definition du type "TrameArea"
 		DynamicLayerType trameAreaType = new DynamicLayerType("area", TrameArea.class);
