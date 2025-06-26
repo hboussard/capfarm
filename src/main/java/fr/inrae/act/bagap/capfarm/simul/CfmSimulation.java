@@ -28,7 +28,7 @@ public class CfmSimulation extends Simulation {
 
 	@Override
 	protected void initModel(){
-		for(CoverLocationModel model : (GlobalCoverLocationModel) model().get("agriculture")){
+		for(CoverLocationModel model : (GlobalCoverLocationModel) model().get("agriculture")){ // pour chaque ferme
 			model.getCoverAllocator().clearParcels();
 			MemoryFactory.init(model, manager().start(), manager().paramProcessMode(), manager().methodProcessMode(), number());
 			HistoricFactory.init((Farm) model.getCoverAllocator(), manager().start());

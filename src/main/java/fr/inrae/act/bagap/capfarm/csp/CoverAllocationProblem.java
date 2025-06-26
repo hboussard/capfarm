@@ -8,6 +8,8 @@ import org.chocosolver.solver.constraints.ICF;
 import org.chocosolver.solver.constraints.LCF;
 import org.chocosolver.solver.search.loop.monitors.SMF;
 import org.chocosolver.solver.search.strategy.ISF;
+import org.chocosolver.solver.search.strategy.selectors.VariableSelectorWithTies;
+import org.chocosolver.solver.search.strategy.selectors.values.IntDomainMin;
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy;
 import org.chocosolver.solver.search.strategy.strategy.StrategiesSequencer;
 import org.chocosolver.solver.variables.BoolVar;
@@ -164,16 +166,18 @@ public class CoverAllocationProblem extends AbstractProblem {
 	
 	@Override
 	protected void configureSearch() {
+		
 		long r = new Double(Math.random() * 1000000000.0).longValue();
 		//System.out.println(farm.isMemory()+" "+t.year()+" "+r);
 		AbstractStrategy<?> as1 = ISF.random(ArrayUtils.append(coversAndParcels), r);
 		AbstractStrategy<?> as2 = ISF.random(parcelsImplantedCoverContinue, r);
+		
 		solver.set(ISF.lastConflict(solver, new StrategiesSequencer(as1, as2)));
-		/*solver.set(ISF.custom(
+		/*
+		solver.set(ISF.custom(
 			    new VariableSelectorWithTies(new FirstFail()),
 			    new IntDomainMin(), ArrayUtils.append(ArrayUtils.append(coversAndParcels))));
-*/
-
+		 */
 		//SearchMonitorFactory.limitTime(solver, 500);
 		SMF.limitFail(solver, 500);
 	}

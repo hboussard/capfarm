@@ -21,6 +21,7 @@ public class ConsoleOutput extends OutputAnalysis {
 					System.out.print(p.getId()+" : ");
 					Instant t = simulation.manager().end();
 					System.out.println(p.getAttribute("strict_seq").getValue(t));
+					//System.out.println(p.getAttribute("pratique").getTime());
 				}		
 			}
 			/*

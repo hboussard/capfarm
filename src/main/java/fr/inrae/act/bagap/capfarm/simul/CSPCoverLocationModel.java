@@ -20,8 +20,8 @@ public class CSPCoverLocationModel extends CoverLocationModel {
 	
 	@Override
 	public boolean make(Instant t) {
-		System.out.println("allocation at "+t.year());
-		// delegation � une strategie d'allocation
+		//System.out.println("allocation at "+t.year());
+		// delegation a une strategie d'allocation
 		return strategy.make(factory, getCoverAllocator(), t);
 	}
 	

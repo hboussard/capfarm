@@ -12,7 +12,6 @@ import java.util.TreeSet;
 
 import org.geotools.data.shapefile.files.ShpFiles;
 
-import fr.inrae.act.bagap.capfarm.model.Cover;
 import fr.inrae.act.bagap.capfarm.model.CoverManager;
 import fr.inrae.act.bagap.capfarm.model.CoverUnit;
 import fr.inrae.act.bagap.capfarm.model.Farm;

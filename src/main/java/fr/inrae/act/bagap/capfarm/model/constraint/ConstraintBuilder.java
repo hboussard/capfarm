@@ -1,7 +1,6 @@
 package fr.inrae.act.bagap.capfarm.model.constraint;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Map;

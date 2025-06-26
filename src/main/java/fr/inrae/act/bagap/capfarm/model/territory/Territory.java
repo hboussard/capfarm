@@ -20,6 +20,15 @@ public class Territory extends DefaultDynamicLayer<Area> {
 		System.out.println();
 	}
 	
+	public int totalParcelsArea() {
+		int area = 0;
+		for(Area a : this){
+			if(a instanceof AgriculturalArea){
+				area += ((AgriculturalArea) a).totalParcelsArea();
+			}
+		}
+		return area;
+	}
 	/*
 	public int totalParcelsArea() {
 		int area = 0;

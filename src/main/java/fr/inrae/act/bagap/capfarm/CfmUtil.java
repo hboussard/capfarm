@@ -275,7 +275,7 @@ public class CfmUtil {
 		} 
 	}
 	
-	public static float[] exportData(DynamicLayer<?> layer, String name, Instant t, Map<String, Integer> map, EnteteRaster entete){
+	public static float[] exportData(DynamicLayer<?> layer, String attribute, Instant t, Map<String, Integer> map, EnteteRaster entete){
 		
 		float[] datas = new float[entete.width()*entete.height()];
 		
@@ -286,7 +286,7 @@ public class CfmUtil {
 		while(ite.hasNext()){
 			f = ite.next();
 			RasterPolygon rp = (RasterPolygon) f.getRepresentation("raster").getGeometry(t);
-			int cover = map.get(((CoverUnit) f.getAttribute(name).getValue(t)).getCode());
+			int cover = map.get(((CoverUnit) f.getAttribute(attribute).getValue(t)).getCode());
 			indrp = 0;
 			xdelta = rp.getDeltaI();
 			ydelta = rp.getDeltaJ();

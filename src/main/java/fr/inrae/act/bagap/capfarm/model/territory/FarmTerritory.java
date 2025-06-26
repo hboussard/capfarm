@@ -19,6 +19,12 @@ public class FarmTerritory extends DefaultDynamicLayer<FarmUnit> {
 	public Set<Parcel> parcels(){
 		return (Set<Parcel>) set(Parcel.class);
 	}
+
+	/*
+	public <P extends Parcel> Set<P> parcels(){
+		return (Set<P>) set();
+	}
+	*/
 	
 	public Set<Facility> facilities(){
 		return (Set<Facility>) set(Facility.class);

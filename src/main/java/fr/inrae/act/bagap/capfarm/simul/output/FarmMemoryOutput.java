@@ -22,9 +22,7 @@ public class FarmMemoryOutput extends OutputAnalysis {
 	
 	private String path;
 	
-	public FarmMemoryOutput(){
-		// do nothing
-	}
+	private int nbSuccess;
 	
 	public FarmMemoryOutput(String path){
 		if(path == null){
@@ -32,6 +30,7 @@ public class FarmMemoryOutput extends OutputAnalysis {
 		}else{
 			this.path = path;
 		}
+		nbSuccess = 0;
 	}
 	
 	@Override
@@ -76,17 +75,22 @@ public class FarmMemoryOutput extends OutputAnalysis {
 	public void close(Simulation simulation){
 		if(!simulation.isCancelled()){
 			firstInit(simulation);
+			nbSuccess++;
 			try {
 				//new File(simulation.scenario().simulator().folder()+"memory/").mkdir();
 				CsvWriter cw;
 				for(CoverLocationModel model : (GlobalCoverLocationModel) simulation.model().get("agriculture")){
 					
 					cw = cws.get(model.getCoverAllocator().getCode());
-					cw.write(simulation.number()+"");
-					cw.write("memory/"+model.getCoverAllocator().getCode()+"_memory_"+simulation.number()+".csv");
+					//cw.write(simulation.number()+"");
+					cw.write(nbSuccess+"");
+					//cw.write("memory/"+model.getCoverAllocator().getCode()+"_memory_"+simulation.number()+".csv");
+					cw.write("memory/"+model.getCoverAllocator().getCode()+"_memory_"+nbSuccess+".csv");
 					cw.endRecord();
 					
-					cw = new CsvWriter(path+model.getCoverAllocator().getCode()+"/"+model.getCoverAllocator().getConstraintSystem()+"/memory/"+model.getCoverAllocator().getCode()+"_memory_"+simulation.number()+".csv");
+					//cw = new CsvWriter(path+model.getCoverAllocator().getCode()+"/"+model.getCoverAllocator().getConstraintSystem()+"/memory/"+model.getCoverAllocator().getCode()+"_memory_"+simulation.number()+".csv");
+					cw = new CsvWriter(path+model.getCoverAllocator().getCode()+"/"+model.getCoverAllocator().getConstraintSystem()+"/memory/"+model.getCoverAllocator().getCode()+"_memory_"+nbSuccess+".csv");
+					
 					cw.setDelimiter(';');
 					cw.write("parcel");
 					cw.write("seq_cover");

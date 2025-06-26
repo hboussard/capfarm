@@ -16,7 +16,7 @@ public abstract class CoverLocationModel extends AtomicModel {
 	
 	@Override
 	public String toString(){
-		return "model "+coverAllocator.getCode();
+		return "cover allocation "+coverAllocator.getCode();
 	}
 
 	public CoverAllocator getCoverAllocator(){
